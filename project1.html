@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КосБрус</title>
+
+  <link href="fonts/Manrope-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
+  <link href="fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link href="fonts/Manrope-Medium.woff" as="font" type="font/woff" crossorigin="anonymous">
+  <link href="fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link href="fonts/Manrope-Bold.woff" as="font" type="font/woff" crossorigin="anonymous">
+  <link href="fonts/Manrope-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="js/swiper-bundle.min.js"></script>
+  <script defer src="js/nouislider.min.js"></script>
+  <script defer src="js/wNumb.min.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU"></script>
+  <script defer src="js/script.js"></script>
+</head>
+
+<body id="scroll">
+  <header class="header">
+    <div class="container header__container">
+      <div class="header-top">
+        <nav class="header-top__nav">
+          <ul class="header-top__list">
+            <li class="header-top__item">
+              <div class="header-top__dropdown">
+                <button class="header-top__dropdown-toggle">Клиенту</button>
+                <ul class="header-top__dropdown-menu">
+                  <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 1</a></li>
+                  <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 2</a></li>
+                  <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="header-top__item"><a class="header-top__link" href="production.html" target="_blank">Наше производство</a></li>
+            <li class="header-top__item"><a class="header-top__link" href="photos.html" target="_blank">Фотоотчет</a></li>
+            <li class="header-top__item"><a class="header-top__link" href="review.html" target="_blank">Отзывы</a></li>
+            <li class="header-top__item"><a class="header-top__link" href="contacts.html" target="_blank">Контакты</a></li>
+            <li class="header-top__item">
+              <div class="header-top__dropdown">
+                <button class="header-top__dropdown-toggle">Еще</button>
+                <ul class="header-top__dropdown-menu">
+                  <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 1</a></li>
+                  <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 2</a></li>
+                  <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 3</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <button class="header-burger" aria-label="Открыть меню">
+          <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.0391 15.458H41.9557" stroke="#FC993E" stroke-width="4" stroke-linecap="round"/>
+            <path d="M11.0391 26.5H33.1224" stroke="#FC993E" stroke-width="4" stroke-linecap="round"/>
+            <path d="M11.0391 37.542H24.2891" stroke="#FC993E" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="header-mobile__burger-menu">
+          <button class="header-mobile__burger-close">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 6L19.8932 20.3868" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20.0001 6.00005L5.88201 20.1662" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="header-bottom__menu-button-mob">Каталог&nbsp;<span class="btn-hidden">проектов</span></button>
+          <div class="header-bottom__mob-menu">
+            <button class="header-bottom__btn-back">Назад</button>
+            <button class="header-mobile__menu-close">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 6L19.8932 20.3868" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.0001 6.00005L5.88201 20.1662" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="header-bottom__menu-left-mob">
+              <button class="header-bottom__submenu-btn header-bottom__submenu-btn-mob header-bottom__submenu-btn__active"
+                data-path="action">Акции</button>
+              <button class="header-bottom__submenu-btn header-bottom__submenu-btn-mob" data-path="house1">Дома из бруса</button>
+              <button class="header-bottom__submenu-btn header-bottom__submenu-btn-mob" data-path="house2">Дома из бревна</button>
+              <button class="header-bottom__submenu-btn header-bottom__submenu-btn-mob" data-path="bath1">Баня из бруса</button>
+              <button class="header-bottom__submenu-btn header-bottom__submenu-btn-mob" data-path="bath2">Баня из бревна</button>
+            </div> 
+            
+            <div data-target="action" class="header-bottom__submenu header-bottom__submenu-mob">
+              <button class="header-bottom__btn-back-sub">Назад</button>
+              <button class="header-mobile__submenu-close">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 6L19.8932 20.3868" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20.0001 6.00005L5.88201 20.1662" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="header-bottom__wrap-catalog">
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">6х19</a>
+                  <a href="#" class="header-bottom__table-link">16х9</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                  <a href="#" class="header-bottom__table-link">100м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">100м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                  <a href="#" class="header-bottom__table-link">1</a>
+                  <a href="#" class="header-bottom__table-link">2</a>
+                  <a href="#" class="header-bottom__table-link">3</a>
+                  <a href="#" class="header-bottom__table-link">4</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                  <a href="#" class="header-bottom__table-link">С баней</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                </div>
+              </div>
+              
+            </div>
+            <div data-target="house1" class="header-bottom__submenu header-bottom__submenu-mob">
+              <button class="header-bottom__btn-back-sub">Назад</button>
+              <button class="header-mobile__submenu-close">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 6L19.8932 20.3868" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20.0001 6.00005L5.88201 20.1662" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="header-bottom__wrap-catalog">
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                  <a href="#" class="header-bottom__table-link">1</a>
+                  <a href="#" class="header-bottom__table-link">2</a>
+                  <a href="#" class="header-bottom__table-link">3</a>
+                  <a href="#" class="header-bottom__table-link">4</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                  <a href="#" class="header-bottom__table-link">С баней</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                </div>
+              </div>
+            </div>
+            <div data-target="house2" class="header-bottom__submenu header-bottom__submenu-mob">
+              <button class="header-bottom__btn-back-sub">Назад</button>
+              <button class="header-mobile__submenu-close">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 6L19.8932 20.3868" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20.0001 6.00005L5.88201 20.1662" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="header-bottom__wrap-catalog">
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">7х9</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">8х9</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                  <a href="#" class="header-bottom__table-link">1</a>
+                  <a href="#" class="header-bottom__table-link">2</a>
+                  <a href="#" class="header-bottom__table-link">3</a>
+                  <a href="#" class="header-bottom__table-link">4</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                  <a href="#" class="header-bottom__table-link">С баней</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                </div>
+              </div>
+            </div>
+            <div data-target="bath1" class="header-bottom__submenu header-bottom__submenu-mob">
+              <button class="header-bottom__btn-back-sub">Назад</button>
+              <button class="header-mobile__submenu-close">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 6L19.8932 20.3868" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20.0001 6.00005L5.88201 20.1662" stroke="#9499A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="header-bottom__wrap-catalog">
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                  <a href="#" class="header-bottom__table-link">6х9</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                  <a href="#" class="header-bottom__table-link">150м2</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                  <a href="#" class="header-bottom__table-link">1</a>
+                  <a href="#" class="header-bottom__table-link">2</a>
+                  <a href="#" class="header-bottom__table-link">3</a>
+                  <a href="#" class="header-bottom__table-link">4</a>
+                </div>
+                <div class="header-bottom__catalog-list">
+                  <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                  <a href="#" class="header-bottom__table-link">С баней</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                  <a href="#" class="header-bottom__table-link">С мансардой</a>
+                </div>
+              </div>
+            </div>
+            <div data-target="bath2" class="header-bottom__submenu header-bottom__submenu-mob">
+              <button class="header-bottom__btn-back-sub">Назад</button>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">16х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">9х9</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">100м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">190м2</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                <a href="#" class="header-bottom__table-link">1</a>
+                <a href="#" class="header-bottom__table-link">2</a>
+                <a href="#" class="header-bottom__table-link">3</a>
+                <a href="#" class="header-bottom__table-link">4</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С баней</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+              </div>
+            </div>
+          </div>
+          <nav class="header-mobile__burger-nav">
+            <ul class="header-mobile__list">
+              <li class="header-mobile__item">
+                <div class="header-top__dropdown">
+                  <button class="header-top__dropdown-toggle dropdown-toggle__mob ">Клиенту</button>
+                  <ul class="header-top__dropdown-menu">
+                    <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 1</a></li>
+                    <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 2</a></li>
+                    <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 3</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="header-mobile__item"><a class="header-mobile__link header-top__link" href="production.html" target="_blank">Наше производство</a></li>
+              <li class="header-mobile__item"><a class="header-mobile__link header-top__link" href="photos.html" target="_blank">Фотоотчет</a></li>
+              <li class="header-mobile__item"><a class="header-mobile__link header-top__link" href="review.html" target="_blank">Отзывы</a></li>
+              <li class="header-mobile__item"><a class="header-mobile__link header-top__link" href="contacts.html" target="_blank">Контакты</a></li>
+              <li class="header-mobile__item">
+                <div class="header-top__dropdown">
+                  <button class="header-top__dropdown-toggle dropdown-toggle__mob">Еще</button>
+                  <ul class="header-top__dropdown-menu">
+                    <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 1</a></li>
+                    <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 2</a></li>
+                    <li class="header-top__dropdown-item"><a class="header-top__dropdown-link" href="#">Ссылка 3</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <ul class="header-top__list-icon">
+            <li class="header-top__item-icon">
+              <a class="header-top__link-icon" href="#">
+                <img src="img/telegram.svg" alt="Иконка Телеграм">
+              </a>
+            </li>
+            <li class="header-top__item-icon">
+              <a class="header-top__link-icon" href="#">
+                <img src="img/whatsapp.svg" alt="Иконка What's app">
+              </a>
+            </li>
+            <li class="header-top__item-icon">
+              <a class="header-top__link-icon" href="#">
+                <img src="img/viber.svg" alt="Иконка Viber">
+              </a>
+            </li>
+          </ul>
+          <a class="header-top__mail" href="mailto:kosbrus44@yandex.ru">kosbrus44@yandex.ru</a>
+          <ul class="header-top__phone-list header-mobile__phone-list">
+            <li class="header-top__phone-item"><a class="header-top__phone-link header-top__phone-top"
+                href="tel:+79611282704">+7&nbsp;(961)&nbsp;128-27-04</a></li>
+            <li class="header-top__phone-item"><a class="header-top__phone-link"
+                href="tel:+79611282704">+7&nbsp;(961)&nbsp;128-27-04</a></li>
+          </ul>
+          <button class="header-top__btn-phone header-mobile__btn-phone form-btn">Заказать звонок</button>
+        </div>
+        <button class="btn-search__mob">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.8">
+            <circle cx="13.75" cy="13.75" r="8.75" stroke="#FC993E" stroke-width="2"/>
+            <path d="M25 25L21.25 21.25" stroke="#FC993E" stroke-width="2" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </button>
+        <img class="logo-mob" src="img/logo-mob.svg" alt="Логотип">
+        <div class="header-top__contacts">
+          <div class="header-top__contacts-social">
+            <ul class="header-top__list-icon">
+              <li class="header-top__item-icon">
+                <a class="header-top__link-icon" href="#">
+                  <img src="img/telegram.svg" alt="Иконка Телеграм">
+                </a>
+              </li>
+              <li class="header-top__item-icon">
+                <a class="header-top__link-icon" href="#">
+                  <img src="img/whatsapp.svg" alt="Иконка What's app">
+                </a>
+              </li>
+              <li class="header-top__item-icon">
+                <a class="header-top__link-icon" href="#">
+                  <img src="img/viber.svg" alt="Иконка Viber">
+                </a>
+              </li>
+            </ul>
+            <a class="header-top__mail" href="mailto:kosbrus44@yandex.ru">kosbrus44@yandex.ru</a>
+          </div>
+          <ul class="header-top__phone-list">
+            <li class="header-top__phone-item"><a class="header-top__phone-link header-top__phone-top"
+                href="tel:+79611282704">+7&nbsp;(961)&nbsp;128-27-04</a></li>
+            <li class="header-top__phone-item"><a class="header-top__phone-link"
+                href="tel:+79611282704">+7&nbsp;(961)&nbsp;128-27-04</a></li>
+          </ul>
+          <button class="header-top__btn-phone form-btn">Заказать звонок</button>
+          <div class="modal-overlay-order modal-overlay">
+            <div class="modal modal-order">
+              <h3 class="modal-heading">Сделать заказ</h3>
+              <span class="modal-order__text">Пожалуйста, заполните форму и мы с вами свяжемся</span>
+              <form class="modal-order__form" action="#">
+                <input class="modal-order__input" type="text" placeholder="Введите ваше имя">
+                <input class="modal-order__input" type="email" name="mail" id="mail" placeholder="Введите вашу почту">
+                <input class="modal-order__input modal-order__input-last" type="text" placeholder="Комментарий">
+                <div class="modal-order__filters">
+                  <div class="modal-order__left-filter">
+                    <span class="modal-order__filter-text">Тип проекта</span>
+                    <ul class="checkbox_list">
+                      <li class="checkbox__item">
+                        <label for="check_1">
+                          <input type="checkbox" name="check_1" id="check_1" class="modal-order__checkbox">под усадку
+                          <span></span>
+                        </label>
+                      </li>
+                      <li class="checkbox__item">
+                        <label for="check_2">
+                          <input type="checkbox" id="check_2" name="check_2" class="modal-order__checkbox">под ключ
+                          <span></span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-order__right-filter">
+                    <span class="modal-order__filter-text">Доп. услуги</span>
+                    <ul class="checkbox_list">
+                      <li class="checkbox__item">
+                        <label for="check_3">
+                          <input type="checkbox" name="check_3" id="check_3" class="modal-order__checkbox">фундамент
+                          <span></span>
+                        </label>
+                      </li>
+                      <li class="checkbox__item">
+                        <label for="check_4">
+                          <input type="checkbox" id="check_4" name="check_4" class="modal-order__checkbox">кровля
+                          <span></span>
+                        </label>
+                      </li>
+                      <li class="checkbox__item">
+                        <label for="check_5">
+                          <input type="checkbox" id="check_5" name="check_5" class="modal-order__checkbox">отопление
+                          <span></span>
+                        </label>  
+                      </li>
+                      <li class="checkbox__item">
+                        <label for="check_6">
+                          <input type="checkbox" id="check_6" name="check_6" class="modal-order__checkbox">электричество
+                          <span></span>
+                        </label>
+                      </li>
+                      <li class="checkbox__item">
+                        <label for="check_7">
+                          <input type="checkbox" id="check_7" name="check_7" class="modal-order__checkbox">сантехника
+                          <span></span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <button class="modal-order__form-btn" type="submit">Обсудить проект</button>
+              </form>
+              <button class="close-btn">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.6172 10.6155L35.1974 36.069" stroke="#666A73" stroke-width="4" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M35.3829 10.6156L10.4048 35.6788" stroke="#666A73" stroke-width="4" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-bottom">
+        <div class="header-bottom__left">
+          <a class="header-bottom__logo" href="index.html">
+            <img src="img/logo.svg" alt="Логотип">
+          </a>
+          <button class="header-bottom__menu-button">Каталог&nbsp;<span class="btn-hidden">проектов</span></button>
+        </div>
+        
+        <div class="header-bottom__right">
+          <div class="header-bottom__search-container">
+            <form action="#" class="header-bottom__search-form">
+              <input class="header-bottom__search-input" type="text" placeholder="Введите проект">
+              <button class="header-bottom__search-btn" type="submit"></button>
+            </form>
+            <div class="header-bottom__search-menu hidden">
+              <span class="header-bottom__search-title">Популярные запросы</span>
+              <ul class="header-bottom__search-list">
+                <li class="header-bottom__search-item"><a class="header-bottom__search-link" href="#">дом из бруса 6х6</a>
+                </li>
+                <li class="header-bottom__search-item"><a class="header-bottom__search-link" href="#">дом из бруса 6х6</a>
+                </li>
+                <li class="header-bottom__search-item"><a class="header-bottom__search-link" href="#">дом из бруса 6х6</a>
+                </li>
+                <li class="header-bottom__search-item"><a class="header-bottom__search-link" href="#">дом из бруса 6х6</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a class="header-bottom__action-link btn-hidden" href="#" target="_blank">Акции</a>
+          <a class="header-bottom__vk-link" href="#" target="_blank">Мы в ВКонтакте</a>
+        </div>
+
+        <div class="header-bottom__menu">
+          <div class="header-bottom__menu-left">
+            <button class="header-bottom__submenu-btn header-bottom__submenu-btn__active"
+              data-path="action">Акции</button>
+            <button class="header-bottom__submenu-btn" data-path="house1">Дома из бруса</button>
+            <button class="header-bottom__submenu-btn" data-path="house2">Дома из бревна</button>
+            <button class="header-bottom__submenu-btn" data-path="bath1">Баня из бруса</button>
+            <button class="header-bottom__submenu-btn" data-path="bath2">Баня из бревна</button>
+          </div> 
+          <div class="header-bottom__wrap-table">
+            <div data-target="action" class="header-bottom__submenu header-bottom__submenu__active">
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">6х19</a>
+                <a href="#" class="header-bottom__table-link">16х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                <a href="#" class="header-bottom__table-link">100м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">100м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                <a href="#" class="header-bottom__table-link">1</a>
+                <a href="#" class="header-bottom__table-link">2</a>
+                <a href="#" class="header-bottom__table-link">3</a>
+                <a href="#" class="header-bottom__table-link">4</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С баней</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+              </div>
+            </div>
+            <div data-target="house1" class="header-bottom__submenu">
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                <a href="#" class="header-bottom__table-link">1</a>
+                <a href="#" class="header-bottom__table-link">2</a>
+                <a href="#" class="header-bottom__table-link">3</a>
+                <a href="#" class="header-bottom__table-link">4</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С баней</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+              </div>
+            </div>
+            <div data-target="house2" class="header-bottom__submenu">
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">7х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">8х9</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                <a href="#" class="header-bottom__table-link">1</a>
+                <a href="#" class="header-bottom__table-link">2</a>
+                <a href="#" class="header-bottom__table-link">3</a>
+                <a href="#" class="header-bottom__table-link">4</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С баней</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+              </div>
+            </div>
+            <div data-target="bath1" class="header-bottom__submenu">
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                <a href="#" class="header-bottom__table-link">1</a>
+                <a href="#" class="header-bottom__table-link">2</a>
+                <a href="#" class="header-bottom__table-link">3</a>
+                <a href="#" class="header-bottom__table-link">4</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С баней</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+              </div>
+            </div>
+            <div data-target="bath2" class="header-bottom__submenu">
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Размер</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">16х9</a>
+                <a href="#" class="header-bottom__table-link">6х9</a>
+                <a href="#" class="header-bottom__table-link">9х9</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Площадь</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">100м2</a>
+                <a href="#" class="header-bottom__table-link">150м2</a>
+                <a href="#" class="header-bottom__table-link">190м2</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Этаж</a>
+                <a href="#" class="header-bottom__table-link">1</a>
+                <a href="#" class="header-bottom__table-link">2</a>
+                <a href="#" class="header-bottom__table-link">3</a>
+                <a href="#" class="header-bottom__table-link">4</a>
+              </div>
+              <div class="header-bottom__catalog-list">
+                <a class="header-bottom__table-link header-bottom__table-link-top" href="#">Особенности</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С баней</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+                <a href="#" class="header-bottom__table-link">С мансардой</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+      </div>
+      
+    </div>
+  </header>
+  <main>
+    <section class="section-project-one container">
+      <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+          <li>
+            <a href="index.html">Главная</a>
+          </li>  
+          <li>Фотоотчет</li>
+        </ul>
+      </nav>
+      <h2 class="heading-h2">Проект Аврора</h2>
+      <div class="section-blog__left">
+        <p class="section-blog__descr">Компания «Косбрус» производит заготовку в лесосеках, арендуемых в Чухломском, Галичском и Солигаличском лесничечествах. Заготовка ведется как ручным, так и механизированным способами.</p>
+      </div>
+      <img class="section-forest__img section-project-one__img" src="img/forest.jpg" alt="Лесозаготовка">
+      <div class="section-blog__content">
+        <div class="section-blog__left">
+          <p class="section-blog__descr section-forest__descr">Фундамент свайно-винтовой, кровля из металлочерепицы.</p>
+        </div>
+        <div class="section-blog__right section-forest__right">
+          <p class="section-blog__descr section-forest__descr">Московская обл., Можайский р-н, СНТ «Уют» (Февраль 2019 года).</p>
+        </div>
+      </div>
+      <div class="section-forest__swiper swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide section-forest__slide">  
+            <img class="section-forest__slide-img" src="img/for-sl1.jpg" alt="Фото лесозаготовки">
+            <span class="section-forest__slide-title">Харвестер</span>
+          </div>
+          <div class="swiper-slide section-forest__slide">  
+            <img class="section-forest__slide-img" src="img/for-sl2.jpg" alt="Фото лесозаготовки">
+            <span class="section-forest__slide-title">Лесосеки КосБрус</span>
+          </div>
+          <div class="swiper-slide section-forest__slide">  
+            <img class="section-forest__slide-img" src="img/for-sl3.jpg" alt="Фото лесозаготовки">
+            <span class="section-forest__slide-title">Механизированная заготовка</span>
+          </div>
+          <div class="swiper-slide section-forest__slide">  
+            <img class="section-forest__slide-img" src="img/for-sl1.jpg" alt="Фото лесозаготовки">
+            <span class="section-forest__slide-title">Харвестер</span>
+          </div>
+          <div class="swiper-slide section-forest__slide">  
+            <img class="section-forest__slide-img" src="img/for-sl2.jpg" alt="Фото лесозаготовки">
+            <span class="section-forest__slide-title">Лесосеки КосБрус</span>
+          </div>
+          <div class="swiper-slide section-forest__slide">  
+            <img class="section-forest__slide-img" src="img/for-sl3.jpg" alt="Фото лесозаготовки">
+            <span class="section-forest__slide-title">Механизированная заготовка</span>
+          </div>
+        </div>
+        <!-- Кнопки навигации -->
+        <button class="sw-btn section-main__btn section-main__btn-left section-forest__btn-left">
+          <svg width="21" height="37" viewBox="0 0 21 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.375 2.75L2.625 18.5L18.375 34.25" stroke="#FC993E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="sw-btn section-main__btn section-main__btn-right section-forest__btn-right">
+          <svg width="21" height="37" viewBox="0 0 21 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.625 2.75L18.375 18.5L2.625 34.25" stroke="#FC993E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>  
+    </section>
+    <section class="section-blog container">
+      <span class="section-blog__subtitle">Смотреть также</span>
+      <ul class="section-blog__grid articles-list">
+        <li class="section-blog__card project-card">
+          <a class="project-card__link" href="#">
+            <span class="project-card__label">46 фото</span>
+            <h3 class="project-card__title">Проект бани Аврора</h3>
+            <span class="project-card__text">9х9 из проф бруса 140 х140 мм</span>
+          </a>
+        </li>
+        <li class="section-blog__card project-card">
+          <a class="project-card__link" href="#">
+            <span class="project-card__label">46 фото</span>
+            <h3 class="project-card__title">Проект бани Аврора</h3>
+            <span class="project-card__text">9х9 из проф бруса 140 х140 мм</span>
+          </a>
+        </li>
+        <li class="section-blog__card project-card">
+          <a class="project-card__link" href="#">
+            <span class="project-card__label">46 фото</span>
+            <h3 class="project-card__title">Проект бани Аврора</h3>
+            <span class="project-card__text">9х9 из проф бруса 140 х140 мм</span>
+          </a>
+        </li>
+        <li class="section-blog__card project-card hidden">
+          <a class="project-card__link" href="#">
+            <span class="project-card__label">46 фото</span>
+            <h3 class="project-card__title">Проект бани Аврора</h3>
+            <span class="project-card__text">9х9 из проф бруса 140 х140 мм</span>
+          </a>
+        </li>
+        <li class="section-blog__card project-card hidden">
+          <a class="project-card__link" href="#">
+            <span class="project-card__label">46 фото</span>
+            <h3 class="project-card__title">Проект бани Аврора</h3>
+            <span class="project-card__text">9х9 из проф бруса 140 х140 мм</span>
+          </a>
+        </li>
+        <li class="section-blog__card project-card hidden">
+          <a class="project-card__link" href="#">
+            <span class="project-card__label">46 фото</span>
+            <h3 class="project-card__title">Проект бани Аврора</h3>
+            <span class="project-card__text">9х9 из проф бруса 140 х140 мм</span>
+          </a>
+        </li>
+      </ul>
+      <button class="button-all-blog transparent-btn show-more-btn">Смотреть все</button>
+    </section>
+    <section class="section-cons container">
+      <div class="section-cons__container">
+        <div class="section-cons__content">
+          <h2 class="section-filter__heading heading-h2">Нужна <span class="heading-color">консультация?</span></h2>
+          <p class="section-cons__descr">Подробно расскажем о наших услугах, видах работ и типовых проектах, рассчитаем стоимость и подготовим индивидуальное предложение!</p>
+          <button class="section-cons__btn form-btn">Заказать звонок</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer container">
+    <div class="footer__container">
+      <div class="footer-top">
+        <div class="footer-top__left">
+          <a class="footer-top__mail" href="mailto:kosbrus44@yandex.ru">kosbrus44@yandex.ru</a>
+          <ul class="footer-top__phone-list">
+            <li class="footer-top__phone-item">
+              <a class="footer-top__phone-link footer-top__phone-top" href="tel:+79611282704">+7&nbsp;(961)&nbsp;128-27-04</a>
+            </li>
+            <li class="footer-top__phone-item">
+              <a class="footer-top__phone-link" href="tel:+79611282704">+7&nbsp;(961)&nbsp;128-27-04</a>
+            </li>
+          </ul>
+          <span class="footer-top__text">Обратитесь к нам, мы проведем консультацию</span>
+          <ul class="header-top__list-icon">
+            <li class="header-top__item-icon">
+              <a class="header-top__link-icon" href="#">
+                <img src="img/telegram.svg" alt="Иконка Телеграм">
+              </a>
+            </li>
+            <li class="header-top__item-icon">
+              <a class="header-top__link-icon" href="#">
+                <img src="img/whatsapp.svg" alt="Иконка What's app">
+              </a>
+            </li>
+            <li class="header-top__item-icon">
+              <a class="header-top__link-icon" href="#">
+                <img src="img/viber.svg" alt="Иконка Viber">
+              </a>
+            </li>
+          </ul> 
+        </div>
+        <div class="footer-top__right">
+          <nav class="footer-top__nav">
+            <ul class="footer-top__list">
+              <li class="footer-top__item">
+                <a class="footer-top__link footer-top__link-top" href="index.html" target="_blank">Главная</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="category.html" target="_blank">Клиентам</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="photos.html" target="_blank">Фотоотчет</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="production.html" target="_blank">Наше производство</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="review.html" target="_blank">Отзывы</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="#">О нас</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="article.html" target="_blank">Статьи</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="contacts.html" target="_blank">Контакты</a>
+              </li>
+            </ul>
+            <ul class="footer-top__list">
+              <li class="footer-top__item">
+                <a class="footer-top__link footer-top__link-top" href="#">Продукция</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="#">Дома из брусов</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="#">Дома из бревна</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="#">Бани из брусов</a>
+              </li>
+              <li class="footer-top__item">
+                <a class="footer-top__link" href="#">Бани из бревна</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom__left">
+          <span class="footer-bottom__text">2014 Все права защищены</span>
+        </div>
+        <div class="footer-bottom__right">
+          <a class="footer-bottom__link" href="#" target="_blank">Политика конфиденциальности</a>
+          <a class="footer-bottom__link" href="#" >Разработка сайтов</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
